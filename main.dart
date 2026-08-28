@@ -142,4 +142,14 @@ void main() {
   //   print(values);
   //   values = values.reversed.toList();
   //   print(values);
+
+  int getMaxValue(List numbers) {
+    numbers.sort();
+
+    return numbers[numbers.length - 1];
+  }
+
+  List values = [12, 43, 56423, 21, 24, 31, 333, 42, 46, 1, 0, 112, 13];
+  int maxvalue = getMaxValue(values);
+  print("Maximum value : $maxvalue");
 }
