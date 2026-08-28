@@ -83,21 +83,63 @@ void main() {
   //   print("Consonant");
   // }
 
-  int customerId = 1001;
-  String name = "james";
-  int unitsconsumed = 800;
-  double rate = 0;
+  // int customerId = 1001;
+  // String name = "james";
+  // int unitsconsumed = 800;
+  // double rate = 0;
 
-  if (unitsconsumed <= 199) {
-    rate = 1.20;
-  } else if (unitsconsumed < 400) {
-    rate = 1.50;
-  } else if (unitsconsumed < 600) {
-    rate = 1.80;
-  } else {
-    rate = 2.00;
-  }
+  // if (unitsconsumed <= 199) {
+  //   rate = 1.20;
+  // } else if (unitsconsumed < 400) {
+  //   rate = 1.50;
+  // } else if (unitsconsumed < 600) {
+  //   rate = 1.80;
+  // } else {
+  //   rate = 2.00;
+  // }
 
-  double billamount = unitsconsumed * rate;
-  print("Net Bill Amount : $billamount");
+  // double billamount = unitsconsumed * rate;
+  // print("Net Bill Amount : $billamount");
+
+  // List names = ["Abdul Waheed", "Abdul Mueed", "Ali", "Ahmed", "Usman"];
+  // print(names);
+
+  // List days = [];
+
+  // days.add("Monday");
+  // days.add("Tuesday");
+  // days.add("Wednesday");
+  // days.add("Thursday");
+  // days.add("Friday");
+  // days.add("Saturday");
+  // days.add("Sunday");
+
+  // print(days);
+
+  // List days = [
+  //   "Monday",
+  //   "Tuesday",
+  //   "Wednesday",
+  //   "Thursday",
+  //   "friday",
+  //   "saturday",
+  //   "Sunday",
+  // ];
+
+  // days.removeLast();
+  // days.removeLast();
+  // days.removeLast();
+  // days.removeLast();
+  // days.removeLast();
+  // days.removeLast();
+  // days.removeLast();
+
+  // print(days);
+
+  // List values = [12, 43, 56423, 21, 24, 31, 333, 42, 46, 1, 0, 112, 12];
+
+  //   values.sort();
+  //   print(values);
+  //   values = values.reversed.toList();
+  //   print(values);
 }
