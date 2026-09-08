@@ -417,19 +417,19 @@ void main() {
   // print(studentData["hobbies"][0]);
   // print(studentData["marks"][1]);
 
-  List usersList = ["Ali", "Ahmed"];
-  Map data = {"city": "Karachi"};
+  // List usersList = ["Ali", "Ahmed"];
+  // Map data = {"city": "Karachi"};
 
-  List x = ["Ali", "Ahmed"];
-  Map y = {"city": "Karachi"};
+  // List x = ["Ali", "Ahmed"];
+  // Map y = {"city": "Karachi"};
 
-  List names = ["Ali", "Ahmed"];
-  Map cityInfo = {"city": "Karachi"};
+  // List names = ["Ali", "Ahmed"];
+  // Map cityInfo = {"city": "Karachi"};
 
-  print(usersList[0]);
-  print(data["city"]);
-  print(x[0]);
-  print(y["city"]);
-  print(names[0]);
-  print(cityInfo["city"]);
+  // print(usersList[0]);
+  // print(data["city"]);
+  // print(x[0]);
+  // print(y["city"]);
+  // print(names[0]);
+  // print(cityInfo["city"]);
 }
