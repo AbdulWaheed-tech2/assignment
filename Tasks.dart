@@ -1,5 +1,3 @@
-import 'dart:io';
-
 void main() {
   // for (int i = 1; i <= 10; i++) {
   //   print(i);
@@ -92,8 +90,8 @@ void main() {
   //   number--;
   // }
 
-  List<int> price = [100, 250, 500, 1200];
-  for (int price in price) {
-    print("Rs. $price");
-  }
+  // List<int> price = [100, 250, 500, 1200];
+  // for (int price in price) {
+  //   print("Rs. $price");
+  // }
 }
