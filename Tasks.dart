@@ -94,4 +94,36 @@ void main() {
   // for (int price in price) {
   //   print("Rs. $price");
   // }
+
+  // int choice = 3;
+
+  // do {
+  //   print("1. Start");
+  //   print("2. Option");
+  //   print("3. Exit");
+  // } while (choice != 3);
+
+  //   choice = 3;
+  // } while (choice != 3);
+
+  // int usernumber = 7;
+  // int count9 = 1;
+
+  // while (count9 <= usernumber) {
+  //   print(count9);
+  //   count9++;
+  // }
+
+  //   int number18 = 5;
+
+  //   for (int i = 10; i >= 1; i--) {
+  //     print(i * number18);
+  //   }
+  // }
+
+  int number4 = 5;
+
+  for (int i = 1; i <= 10; i++) {
+    print(i * number4);
+  }
 }
