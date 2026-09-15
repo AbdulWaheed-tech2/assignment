@@ -432,4 +432,56 @@ void main() {
   // print(y["city"]);
   // print(names[0]);
   // print(cityInfo["city"]);
-}
+
+  // Map company = {
+  //   "name": "SMIT",
+  //   "location": {
+  //     "city": "karachi",
+  //     "area": "gulshan"
+  //   },
+  // };
+  // print(company["location"]);
+
+  // pre increment
+  //post increment
+
+  // int number = 10;
+  //  number;
+  //  ++number;
+  // print(number);
+
+  // int y =5;
+  // int x = 3;
+
+  // int a = x-- + x++; //5
+  // print(a); //5
+  // int c = ++a + ++x - y; //5
+  // print(c); //5
+  // int d = ++a + --y - a++; //6 //5 //4
+  // print(d ); //4
+  // int e = --d + ++c - --a;
+  // print(e); //2
+  // int f = --e + ++y - --c;
+  // print(f); //1
+
+  // print(f);
+
+  //for loop
+
+  // for (int i = 0; i < 10; i +=5) {
+  //   print(i );
+  // }
+
+  // int a = 1;
+  // while (a<=100) {
+  //   print(a);
+  //   a+=5;
+
+  // int numbers = 1;
+  // do {
+  //    print(numbers);
+  //    numbers++;
+  //   }
+  //   while (numbers <= 10);
+
+ 
