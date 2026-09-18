@@ -177,15 +177,86 @@ void main() {
     "totalCapacity": 100,
   };
 
-
   List<Map> studentList = [
     createStudent(101, "Abdul Mueed", 10, "class 5", 85, 78, 90, true, 88),
     createStudent(102, "ahsan", 19, "class 10", 40, 52, 45, false, 65),
     createStudent(103, "Hiba", 8, "class 3", 95, 92, 89, true, 95),
     createStudent(104, "Ali", 12, "class 6", 60, 65, 70, true, 80),
-    
-  ]
+    createStudent(105, "Hamza", 4, "class 1", 50, 50, 50, true, 90),
+    createStudent(106, "Usman", 14, "Class 8", 75, 80, 85, true, 60),
+  ];
+
+  print(
+    "===========================================================================",
+  );
+  print("      WELCOME TO ${schoolData['schoolName']} (${schoolData['city']}");
+  print(
+    "==========================================================================\n",
+  );
+
+  if (studentList.length > schoolData["totalCapacity"]) {
+    print("❌ SYSTEM ALERT: student capacity limit exceeded!\n");
+    return;
+  }
+
+  for (int i = 0; i < studentList.length; i++) {
+    var student = studentList[i];
+
+    if (student["age"] < 5 || student["age"] > 20) {
+      print(
+        "❌ INVALID RECORD: Student ID ${student['id']} (${student['name']}) has invalid age (${student['age']}).",
+      );
+      print("--------------------------------------------------");
+      continue;
+    }
+
+    int totalObtained =
+        student["marks"]["math"] +
+        student["marks"]["english"] +
+        student["marks"]["urdu"];
+    double percentage = (totalObtained / 300) * 100;
+
+    String grade;
+    if (percentage >= 80) {
+      grade = "A+ Grade";
+    } else if (percentage >= 70) {
+      grade = "A Grade";
+    } else if (percentage >= 60) {
+      grade = "B Grade";
+    } else if (percentage >= 50) {
+      grade = "C Grade";
+    } else {
+      grade = "Fail";
+    }
+
+    bool canSitInExam =
+        student["feesPaid"] == true && student["attendance"] >= 75;
+
+    print("📌 STUDENT ID       : ${student['id']}");
+    print("👤 Name             : ${student['name']}");
+    print("🎂 Age              : ${student['age']} Years");
+    print("🏫 Class            : ${student['className']}");
+    print(
+      "💵 Fees Status      : ${student['feesPaid'] ? 'Paid ✅' : 'Unpaid ❌'}",
+    );
+    print("📊 Total Marks      : $totalObtained / 300");
+    print("📈 Percentage       : ${percentage.toStringAsFixed(1)}%");
+    print("🏆 Grade            : $grade");
+    print("📝 Exam Clearance   : ${canSitInExam ? 'ALLOWED ✅' : 'BLOCKED ❌'}");
+
+    if (!canSitInExam) {
+      if (!student["feesPaid"]) {
+        print("   ⚠️ Reason       : Pending Fees");
+      } else if (student["attendance"] < 75) {
+        print(
+          "   ⚠️ Reason       : Low Attendance (${student['attendance']}% )",
+        );
+      }
+    }
+    print("--------------------------------------------------");
+  }
 }
+
 
 
 
