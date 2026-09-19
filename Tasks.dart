@@ -190,33 +190,23 @@ void main() {
     stdout.write('Choose an option (1-5): ');
     String? choice = stdin.readLineSync();
 
-    switch (choice) {
-      case '1':
-        print('\n--- ADD STUDENT ---');
-        school.addStudent();
-        break;
-
-      case '2':
-        school.viewAllStudents();
-        break;
-
-      case '3':
-        print('\n--- SEARCH STUDENT ---');
-        school.searchStudent();
-        break;
-
-      case '4':
-        print('\n--- DELETE STUDENT ---');
-        school.deleteStudent();
-        break;
-
-      case '5':
-        print('\nExiting program... Thank you!');
-        running = false;
-        break;
-
-      default:
-        print('\n[Invalid Choice]: Please enter a number between 1 and 5.');
+    // Switch case ki jagah if-else ka istemal
+    if (choice == '1') {
+      print('\n--- ADD STUDENT ---');
+      school.addStudent();
+    } else if (choice == '2') {
+      school.viewAllStudents();
+    } else if (choice == '3') {
+      print('\n--- SEARCH STUDENT ---');
+      school.searchStudent();
+    } else if (choice == '4') {
+      print('\n--- DELETE STUDENT ---');
+      school.deleteStudent();
+    } else if (choice == '5') {
+      print('\nExiting program... Thank you!');
+      running = false;
+    } else {
+      print('\n[Invalid Choice]: Please enter a number between 1 and 5.');
     }
   }
 }
