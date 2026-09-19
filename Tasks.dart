@@ -1,3 +1,5 @@
+import 'dart:io';
+
 void main() {
   // for (int i = 1; i <= 10; i++) {
   //   print(i);
@@ -171,118 +173,147 @@ void main() {
   //     "name": "Optical Smoke Detector",
   //   }
 
-  Map schoolData = {
-    "schoolName": "SMIT Model School",
-    "city": "Karachi",
-    "totalCapacity": 100,
-  };
+  SchoolManagementSystem school = SchoolManagementSystem();
+  bool running = true;
 
-  List<Map> studentList = [
-    createStudent(101, "Abdul Mueed", 10, "class 5", 85, 78, 90, true, 88),
-    createStudent(102, "ahsan", 19, "class 10", 40, 52, 45, false, 65),
-    createStudent(103, "Hiba", 8, "class 3", 95, 92, 89, true, 95),
-    createStudent(104, "Ali", 12, "class 6", 60, 65, 70, true, 80),
-    createStudent(105, "Hamza", 4, "class 1", 50, 50, 50, true, 90),
-    createStudent(106, "Usman", 14, "Class 8", 75, 80, 85, true, 60),
-  ];
+  while (running) {
+    print('\n=========================================');
+    print('       SCHOOL MANAGEMENT SYSTEM          ');
+    print('=========================================');
+    print('1. Add Student');
+    print('2. View All Students');
+    print('3. Search Student by Roll Number');
+    print('4. Delete Student');
+    print('5. Exit');
+    print('-----------------------------------------');
 
-  print(
-    "===========================================================================",
-  );
-  print("      WELCOME TO ${schoolData['schoolName']} (${schoolData['city']}");
-  print(
-    "==========================================================================\n",
-  );
+    stdout.write('Choose an option (1-5): ');
+    String? choice = stdin.readLineSync();
 
-  if (studentList.length > schoolData["totalCapacity"]) {
-    print("❌ SYSTEM ALERT: student capacity limit exceeded!\n");
-    return;
-  }
+    switch (choice) {
+      case '1':
+        print('\n--- ADD STUDENT ---');
+        school.addStudent();
+        break;
 
-  for (int i = 0; i < studentList.length; i++) {
-    var student = studentList[i];
+      case '2':
+        school.viewAllStudents();
+        break;
 
-    if (student["age"] < 5 || student["age"] > 20) {
-      print(
-        "❌ INVALID RECORD: Student ID ${student['id']} (${student['name']}) has invalid age (${student['age']}).",
-      );
-      print("--------------------------------------------------");
-      continue;
+      case '3':
+        print('\n--- SEARCH STUDENT ---');
+        school.searchStudent();
+        break;
+
+      case '4':
+        print('\n--- DELETE STUDENT ---');
+        school.deleteStudent();
+        break;
+
+      case '5':
+        print('\nExiting program... Thank you!');
+        running = false;
+        break;
+
+      default:
+        print('\n[Invalid Choice]: Please enter a number between 1 and 5.');
     }
-
-    int totalObtained =
-        student["marks"]["math"] +
-        student["marks"]["english"] +
-        student["marks"]["urdu"];
-    double percentage = (totalObtained / 300) * 100;
-
-    String grade;
-    if (percentage >= 80) {
-      grade = "A+ Grade";
-    } else if (percentage >= 70) {
-      grade = "A Grade";
-    } else if (percentage >= 60) {
-      grade = "B Grade";
-    } else if (percentage >= 50) {
-      grade = "C Grade";
-    } else {
-      grade = "Fail";
-    }
-
-    bool canSitInExam =
-        student["feesPaid"] == true && student["attendance"] >= 75;
-
-    print("📌 STUDENT ID       : ${student['id']}");
-    print("👤 Name             : ${student['name']}");
-    print("🎂 Age              : ${student['age']} Years");
-    print("🏫 Class            : ${student['className']}");
-    print(
-      "💵 Fees Status      : ${student['feesPaid'] ? 'Paid ✅' : 'Unpaid ❌'}",
-    );
-    print("📊 Total Marks      : $totalObtained / 300");
-    print("📈 Percentage       : ${percentage.toStringAsFixed(1)}%");
-    print("🏆 Grade            : $grade");
-    print("📝 Exam Clearance   : ${canSitInExam ? 'ALLOWED ✅' : 'BLOCKED ❌'}");
-
-    if (!canSitInExam) {
-      if (!student["feesPaid"]) {
-        print("   ⚠️ Reason       : Pending Fees");
-      } else if (student["attendance"] < 75) {
-        print(
-          "   ⚠️ Reason       : Low Attendance (${student['attendance']}% )",
-        );
-      }
-    }
-    print("--------------------------------------------------");
   }
 }
 
+class Student {
+  int rollNumber;
+  String name;
+  String studentClass;
+  int age;
+  String guardianName;
 
+  Student({
+    required this.rollNumber,
+    required this.name,
+    required this.studentClass,
+    required this.age,
+    required this.guardianName,
+  });
 
+  void displayInfo() {
+    print('-----------------------------------------');
+    print('Roll Number   : $rollNumber');
+    print('Name          : $name');
+    print('Class         : $studentClass');
+    print('Age           : $age years');
+    print('Guardian Name : $guardianName');
+    print('-----------------------------------------');
+  }
+}
 
+class SchoolManagementSystem {
+  List<Student> students = [];
 
+  void addStudent() {
+    stdout.write('Enter Roll Number: ');
+    int rollNo = int.parse(stdin.readLineSync()!);
 
+    stdout.write('Enter Name: ');
+    String name = stdin.readLineSync()!;
 
+    stdout.write('Enter Class: ');
+    String sClass = stdin.readLineSync()!;
 
+    stdout.write('Enter Age: ');
+    int age = int.parse(stdin.readLineSync()!);
 
-Map createStudent(
-  int id,
-  String name,
-  int age,
-  String className,
-  int math,
-  int english,
-  int urdu,
-  bool feesPaid,
-  int attendance,
-) {
-  return {
-    "id": id,
-    "name": name,
-    "age": age,
-    "className": className,
-    "marks": {"math": math, "english": english, "urdu": urdu},
-    "feesPaid": feesPaid,
-    "attendance": attendance,
-  };
+    stdout.write('Enter Guardian Name: ');
+    String guardian = stdin.readLineSync()!;
+
+    Student newStudent = Student(
+      rollNumber: rollNo,
+      name: name,
+      studentClass: sClass,
+      age: age,
+      guardianName: guardian,
+    );
+
+    students.add(newStudent);
+    print('\n[Success]: Student added successfully!\n');
+  }
+
+  void viewAllStudents() {
+    if (students.isEmpty) {
+      print('\n[Info]: No students found in the list.\n');
+      return;
+    }
+
+    print('\n===== STUDENTS LIST (${students.length}) =====');
+    for (var student in students) {
+      student.displayInfo();
+    }
+  }
+
+  void searchStudent() {
+    stdout.write('Enter Roll Number to Search: ');
+    int rollNo = int.parse(stdin.readLineSync()!);
+
+    try {
+      Student student = students.firstWhere((s) => s.rollNumber == rollNo);
+      print('\n[Found]: Student Details:');
+      student.displayInfo();
+    } catch (e) {
+      print('\n[Error]: Student with Roll Number $rollNo not found!\n');
+    }
+  }
+
+  void deleteStudent() {
+    stdout.write('Enter Roll Number to Delete: ');
+    int rollNo = int.parse(stdin.readLineSync()!);
+
+    int initialLength = students.length;
+    students.removeWhere((student) => student.rollNumber == rollNo);
+
+    if (students.length < initialLength) {
+      print('\n[Success]: Student deleted successfully!\n');
+    } else {
+      print('\n[Error]: Student not found!\n');
+    }
+  }
 }
